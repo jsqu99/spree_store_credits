@@ -1,13 +1,10 @@
 source 'http://rubygems.org'
 
-group :development, :test do
-  if ENV['USE_LOCAL_SPREE']
-    gem "spree_auth_devise", :path => "~/code/spree_auth_devise"
-    gem 'spree_core', :path => '~/code/spree'
-    gem 'spree_promo', :path => '~/code/spree'
-  else
-    gem "spree_auth_devise", :git => 'git://github.com/spree/spree_auth_devise.git', :branch => '1-3-stable'
-  end
-end
+# TODO: uncomment when https://github.com/spree/spree_auth_devise/issues/53 is resolved
+# gem version 1.3.1 isn't really 1.3.1
+#gem 'spree_auth_devise', '~> 1.3.1'
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '1-3-stable'
+
+gem 'spree_landlord', github: 'jsqu99/spree_landlord', branch: 'deface_integration'
 
 gemspec
